@@ -4,4 +4,6 @@ class Church < ApplicationRecord
   has_many :purposes
   has_many :areas, through: :locations
   has_many :items, through: :areas
+
+  validates :name, presence: true
 end
