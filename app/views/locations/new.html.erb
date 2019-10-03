@@ -1,1 +1,11 @@
-new.html.erb
+<h1>Create a New Location</h1>
+
+<%= form_for(@location) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+   <br><br>
+  <%= f.label :notes %>
+  <%= f.text_area :notes %>
+  <br><br>
+  <%= f.submit %>
+<% end %>
