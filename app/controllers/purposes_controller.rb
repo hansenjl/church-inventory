@@ -26,5 +26,5 @@ class PurposesController < ApplicationController
   def purpose_params
     params.require(:purpose).permit(:name, :notes)
   end
-end
+
 end
