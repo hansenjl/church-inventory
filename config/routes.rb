@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :users
   resources :churches
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '*path', to: redirect { |route, req| req.flash[:error] = "The URL \"/#{route[:path]}\" Was Not Found!"; '/' }
 end
