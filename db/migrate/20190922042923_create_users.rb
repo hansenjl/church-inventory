@@ -5,7 +5,6 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :first_name
       t.string :last_name
       t.string :password_digest
-      t.belongs_to :church, foreign_key: true
 
       t.timestamps
     end

@@ -1,6 +1,5 @@
 class Location < ApplicationRecord
-  belongs_to :church
-  has_many :users, through: :church
+  belongs_to :user
   has_many :areas
   has_many :items, through: :areas
 

@@ -1,2 +1,0 @@
-class ChurchesController < ApplicationController
-end

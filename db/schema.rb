@@ -24,14 +24,6 @@ ActiveRecord::Schema.define(version: 2019_09_22_043142) do
     t.index ["location_id"], name: "index_areas_on_location_id"
   end
 
-  create_table "churches", force: :cascade do |t|
-    t.string "name"
-    t.string "city"
-    t.string "state"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.text "notes"
@@ -46,19 +38,17 @@ ActiveRecord::Schema.define(version: 2019_09_22_043142) do
   create_table "locations", force: :cascade do |t|
     t.string "name"
     t.text "notes"
-    t.bigint "church_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["church_id"], name: "index_locations_on_church_id"
+    t.index ["user_id"], name: "index_locations_on_user_id"
   end
 
   create_table "purposes", force: :cascade do |t|
     t.string "name"
     t.text "notes"
-    t.bigint "church_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["church_id"], name: "index_purposes_on_church_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,16 +56,12 @@ ActiveRecord::Schema.define(version: 2019_09_22_043142) do
     t.string "first_name"
     t.string "last_name"
     t.string "password_digest"
-    t.bigint "church_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["church_id"], name: "index_users_on_church_id"
   end
 
   add_foreign_key "areas", "locations"
   add_foreign_key "items", "areas"
   add_foreign_key "items", "purposes"
-  add_foreign_key "locations", "churches"
-  add_foreign_key "purposes", "churches"
-  add_foreign_key "users", "churches"
+  add_foreign_key "locations", "users"
 end

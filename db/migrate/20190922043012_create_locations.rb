@@ -3,7 +3,7 @@ class CreateLocations < ActiveRecord::Migration[5.2]
     create_table :locations do |t|
       t.string :name
       t.text :notes
-      t.belongs_to :church, foreign_key: true
+      t.belongs_to :user, foreign_key: true
 
       t.timestamps
     end

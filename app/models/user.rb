@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  belongs_to :church
-  has_many :locations, through: :church
+  has_many :locations
 
   validates :email, presence: true, uniqueness: true
 end
