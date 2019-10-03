@@ -1,0 +1,7 @@
+<h1>All Purposes</h1>
+
+<ul>
+<% @purposes.each do |purpose|%>
+  <li><%= link_to purpose.name, purpose_path(purpose)%></li>
+<% end %>
+</ul>
