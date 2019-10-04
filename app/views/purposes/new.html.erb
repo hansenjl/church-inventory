@@ -1,5 +1,7 @@
 <h1>Create a New Purpose</h1>
 
+<%= render partial: "layouts/errors", locals: {object: @purpose} %>
+
 <%= form_for(@purpose) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>

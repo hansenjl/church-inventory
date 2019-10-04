@@ -1,6 +1,14 @@
 <h1>Create a New Item</h1>
 
+<%= render partial: "layouts/errors", locals: {object: @item} %>
+
 <%= form_for(@item) do |f| %>
+ <%= f.label :location_id, "Choose a Purpose:"%>
+  <%= f.collection_select :purpose_id, Purpose.all, :id, :name %>
+  <br><br>
+   <%= f.label :location_id, "Choose a Area:"%>
+  <%= f.collection_select :area_id, Area.all, :id, :name %>
+  <br><br>
   <%= f.label :name %>
   <%= f.text_field :name %>
    <br><br>

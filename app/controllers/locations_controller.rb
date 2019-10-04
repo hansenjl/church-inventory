@@ -4,7 +4,8 @@ class LocationsController < ApplicationController
   end
 
   def create
-    @location = Location.new(location_params)
+    @location = current_user.locations.build(location_params)
+    #associate this location to the current_user
     if @location.save
       redirect_to location_path(@location)
     else

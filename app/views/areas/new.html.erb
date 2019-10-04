@@ -1,6 +1,12 @@
 <h1>Create a New Area</h1>
 
+<%= render partial: "layouts/errors", locals: {object: @area} %>
+
+
 <%= form_for(@area) do |f| %>
+  <%= f.label :location_id, "Choose a Location:"%>
+  <%= f.collection_select :location_id, current_user.locations, :id, :name %>
+   <br><br>
   <%= f.label :name %>
   <%= f.text_field :name %>
    <br><br>

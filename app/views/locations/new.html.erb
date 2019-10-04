@@ -1,5 +1,7 @@
 <h1>Create a New Location</h1>
 
+<%= render partial: "layouts/errors", locals: {object: @location} %>
+
 <%= form_for(@location) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>

@@ -5,6 +5,7 @@ class AreasController < ApplicationController
 
   def create
     @area = Area.new(area_params)
+    #binding.pry
     if @area.save
       redirect_to area_path(@area)
     else
@@ -24,7 +25,7 @@ class AreasController < ApplicationController
   private
 
   def area_params
-    params.require(:area).permit(:name, :notes)
+    params.require(:area).permit(:name, :notes, :location_id)
   end
 
 end
